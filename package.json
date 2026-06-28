@@ -2,11 +2,53 @@
   "name": "silver-companion-service-marketplace",
   "private": true,
   "version": "1.0.0",
+  "description": "银发陪伴服务市场 React + Electron 桌面版 MVP",
   "type": "module",
+  "main": "electron/main.cjs",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0",
+    "desktop": "concurrently -k -s first \"npm:dev\" \"wait-on http://127.0.0.1:5173 && electron .\"",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "desktop:preview": "npm run build && electron .",
+    "dist": "npm run build && electron-builder",
+    "dist:mac": "npm run build && electron-builder --mac",
+    "dist:win": "npm run build && electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "com.silvercompanion.marketplace",
+    "productName": "银发陪伴服务平台",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.lifestyle",
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "artifactName": "${productName}-${version}-Setup.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
   },
   "dependencies": {
     "lucide-react": "^0.468.0",
@@ -17,8 +59,12 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.20",
+    "concurrently": "^10.0.3",
+    "electron": "^42.5.0",
+    "electron-builder": "^26.15.3",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "wait-on": "^9.0.10"
   }
 }

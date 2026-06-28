@@ -23,6 +23,8 @@
 - TailwindCSS
 - React Router
 - localStorage
+- Electron
+- electron-builder
 
 ## 项目结构
 
@@ -34,6 +36,9 @@
 ├── tailwind.config.js
 ├── vite.config.js
 ├── README.md
+├── electron
+│   ├── main.cjs
+│   └── preload.cjs
 └── src
     ├── App.jsx
     ├── index.css
@@ -73,6 +78,12 @@ npm install
 npm run dev
 ```
 
+启动桌面软件开发模式：
+
+```bash
+npm run desktop
+```
+
 生产构建：
 
 ```bash
@@ -83,6 +94,21 @@ npm run build
 
 ```bash
 npm run preview
+```
+
+本机打包桌面安装包：
+
+```bash
+npm run dist
+```
+
+在 macOS 上会生成 `.dmg`。如果需要 Windows `.exe`，推荐把仓库上传到 GitHub 后，在 **Actions** 页面运行 `Build desktop installers` 工作流，完成后从 artifacts 下载 `windows-installer`。
+
+也可以在 Windows 电脑上运行：
+
+```bash
+npm install
+npm run dist:win
 ```
 
 ## 数据模型
