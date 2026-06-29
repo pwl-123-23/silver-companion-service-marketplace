@@ -1,5 +1,11 @@
 # 银发陪伴服务平台
 
+## 网页版在线体验
+
+不需要安装，直接在浏览器打开：
+
+[打开网页版银发陪伴服务平台](https://pwl-123-23.github.io/silver-companion-service-marketplace/)
+
 ## 直接下载桌面版
 
 如果你只是想安装使用，不需要看代码，直接点下面链接：
@@ -9,7 +15,7 @@
 | Windows | [下载 Windows .exe 安装包](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-win-x64-Setup.exe) |
 | macOS Apple 芯片 | [下载 macOS arm64 .dmg](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-mac-arm64.dmg) |
 | macOS Intel 芯片 | [下载 macOS x64 .dmg](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-mac-x64.dmg) |
-| Linux | [下载 Linux AppImage](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-linux-x64.AppImage) / [下载 Linux .deb](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-linux-x64.deb) |
+| Linux | [下载 Linux AppImage](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-linux-x86_64.AppImage) / [下载 Linux .deb](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-linux-amd64.deb) |
 
 如果链接暂时显示 404，说明 GitHub Actions 还没有生成安装包。进入仓库的 **Actions** 页面，运行 **Build desktop installers**，完成后再回来下载。
 
