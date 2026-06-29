@@ -3,7 +3,10 @@
   "private": true,
   "version": "1.0.0",
   "description": "银发陪伴服务市场 React + Electron 桌面版 MVP",
-  "author": "pwl-123-23",
+  "author": {
+    "name": "pwl-123-23",
+    "email": "pwl-123-23@users.noreply.github.com"
+  },
   "type": "module",
   "main": "electron/main.cjs",
   "scripts": {
@@ -12,11 +15,11 @@
     "build": "vite build",
     "preview": "vite preview",
     "desktop:preview": "npm run build && electron .",
-    "dist": "npm run build && electron-builder",
-    "dist:mac": "npm run build && electron-builder --mac",
-    "dist:mac:all": "npm run build && electron-builder --mac dmg --x64 --arm64",
-    "dist:win": "npm run build && electron-builder --win nsis",
-    "dist:linux": "npm run build && electron-builder --linux AppImage deb --x64"
+    "dist": "npm run build && electron-builder --publish never",
+    "dist:mac": "npm run build && electron-builder --mac --publish never",
+    "dist:mac:all": "npm run build && electron-builder --mac dmg --x64 --arm64 --publish never",
+    "dist:win": "npm run build && electron-builder --win nsis --publish never",
+    "dist:linux": "npm run build && electron-builder --linux AppImage deb --x64 --publish never"
   },
   "build": {
     "appId": "com.silvercompanion.marketplace",
