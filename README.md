@@ -1,5 +1,18 @@
 # 银发陪伴服务平台
 
+## 直接下载桌面版
+
+如果你只是想安装使用，不需要看代码，直接点下面链接：
+
+| 系统 | 下载 |
+| --- | --- |
+| Windows | [下载 Windows .exe 安装包](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-win-x64-Setup.exe) |
+| macOS Apple 芯片 | [下载 macOS arm64 .dmg](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-mac-arm64.dmg) |
+| macOS Intel 芯片 | [下载 macOS x64 .dmg](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-mac-x64.dmg) |
+| Linux | [下载 Linux AppImage](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-linux-x64.AppImage) / [下载 Linux .deb](https://github.com/pwl-123-23/silver-companion-service-marketplace/releases/latest/download/Silver-Companion-Service-Marketplace-1.0.0-linux-x64.deb) |
+
+如果链接暂时显示 404，说明 GitHub Actions 还没有生成安装包。进入仓库的 **Actions** 页面，运行 **Build desktop installers**，完成后再回来下载。
+
 一个完整的 React + Vite 前端 MVP，用于展示银发陪护与日常协助服务市场。
 
 用户可以浏览服务、按分类筛选和搜索、选择 1/3/8 小时时长进行预约，系统会自动计算总价，并把订单记录保存到 `localStorage`。

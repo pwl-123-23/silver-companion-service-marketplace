@@ -41,7 +41,7 @@ export default function Home() {
             本地可信陪伴服务
           </p>
           <h2 className="mt-4 text-3xl font-black tracking-normal text-white sm:text-5xl">
-            为长者快速预约安心陪护。
+            1分钟为3亿老人找到暖心陪护
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-7 text-white/90">
             浏览陪聊、代办、就医陪同与兴趣陪伴服务。选择时长后系统会自动计算价格，确认后订单会保存到本地。

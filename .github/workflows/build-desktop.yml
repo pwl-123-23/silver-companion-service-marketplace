@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build-windows:
     name: Build Windows EXE
@@ -49,10 +52,59 @@ jobs:
         run: npm install
 
       - name: Build installer
-        run: npm run dist:mac
+        run: npm run dist:mac:all
 
       - name: Upload DMG artifact
         uses: actions/upload-artifact@v4
         with:
           name: macos-installer
           path: release/*.dmg
+
+  build-linux:
+    name: Build Linux Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build installer
+        run: npm run dist:linux
+
+      - name: Upload Linux artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-installers
+          path: |
+            release/*.AppImage
+            release/*.deb
+
+  publish-downloads:
+    name: Publish Download Links
+    runs-on: ubuntu-latest
+    needs:
+      - build-windows
+      - build-macos
+      - build-linux
+    steps:
+      - name: Download installers
+        uses: actions/download-artifact@v4
+        with:
+          path: release-assets
+          merge-multiple: true
+
+      - name: Publish latest desktop release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release view desktop-latest >/dev/null 2>&1 || \
+            gh release create desktop-latest --title "桌面版下载 / Desktop Downloads" --notes "下载适用于 Windows、macOS 和 Linux 的桌面安装包。"
+          gh release upload desktop-latest release-assets/* --clobber
