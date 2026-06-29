@@ -103,7 +103,8 @@ jobs:
 
       - name: Publish latest desktop release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
         run: |
           gh release view desktop-latest >/dev/null 2>&1 || \
             gh release create desktop-latest --title "桌面版下载 / Desktop Downloads" --notes "下载适用于 Windows、macOS 和 Linux 的桌面安装包。"
